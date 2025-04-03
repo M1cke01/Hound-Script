@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js"></script>
+    <title>Hound Express</title>
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <h1>Seguimiento de pedido</h1>
+            <p>Rastrea tus envios fácilmente</p>
+            <img src="img/rastreo.jpg" alt="Imagen alusiva a la gestión de guías">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#registro">Registro de guias</a></li>
+                <li><a href="#estado">Estado general</a></li>
+                <li><a href="#listas">Lista de guias</a></li>
+                <li><a href="#buscar">Buscar pedido</a></li>
+                <li><a href="#historial">Historial de pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="registro">
+            <h2>Registro de guías</h2>
+            <form>
+                <label>Numero de guía:<input type="text" name="numeroDeGuia" required></label>
+                <label>Origen:<input type="text" name="origen" required></label>
+                <label>Destino:<input type="text" name="destino" required></label>
+                <label>Destinatario:<input type="text" name="destinatario" required></label>
+                <label>Fecha de creación: <input type="date" name="fechaDeCreacion" required></label>
+                <label>Estado inicial:
+                    <select name="estado">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="transito">En tránsito</option>
+                        <option value="entregado">Entregado</option>
+                    </select>
+                </label>
+                <button type="submit">Registrar guía</button>
+            </form>
+        </section>
+        <section id="estado">
+            <h2>Estado general</h2>
+            <p>Número total de guias activas: <span id="totalDeGuias">0</span></p>
+            <p>Guías en tránsito: <span id="guiasEnTransito">0</span></p>
+            <p>Guías entregadas: <span id="guiasEntregadas">0</span></p>
+        </section>
+        <section id="listas">
+            <h2>Lista de guias</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número de guía</th>
+                        <th>Estado</th>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Ultima actualización</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Gestión de Guías. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:info@gestionguias.com">info@gestionguias.com</a></p>
+        <p><a href="#">Política de privacidad</a> | <a href="#">Términos y condiciones</a></p>
+    </footer>
+</body>
+</html>

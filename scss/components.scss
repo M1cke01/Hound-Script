@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixins";
+
+// 🎯 Botón corporativo
+.button {
+  background-color: $secondary-color; // Celeste
+  color: $primary-color; // Azul oscuro para contraste
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+// 📋 Tabla corporativa
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 600px;
+
+  &__cell, &__header {
+    padding: 10px;
+    border: 1px solid $primary-color;
+    text-align: left;
+  }
+
+  &__header {
+    background-color: $primary-color;
+    color: $text-color;
+  }
+}
