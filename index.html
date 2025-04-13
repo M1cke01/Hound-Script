@@ -3,73 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Etiquetas meta para SEO -->
+    <meta name="description" content="Rastrea tus envíos con Hound Express. Registra, consulta y visualiza el estado de tus guías de forma rápida y sencilla.">
+    <meta name="keywords" content="seguimiento de pedidos, rastreo de envíos, guías de paquetería, Hound Express, logística">
+    <meta name="author" content="Hound Express">
+    <meta name="robots" content="index, follow">
+
+    <!-- Título de la página -->
+    <title>Hound Express - Seguimiento de pedidos</title>
+
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js"></script>
-    <title>Hound Express</title>
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
         <div class="banner">
             <h1>Seguimiento de pedido</h1>
-            <p>Rastrea tus envios fácilmente</p>
-            <img src="img/rastreo.jpg" alt="Imagen alusiva a la gestión de guías">
+            <p>Rastrea tus envíos fácilmente</p>
+            <img src="img/rastreo.jpg" alt="Ilustración sobre el rastreo de pedidos y gestión de guías" role="img">
         </div>
-        <nav>
+        <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#registro">Registro de guias</a></li>
+                <li><a href="#registro">Registro de guías</a></li>
                 <li><a href="#estado">Estado general</a></li>
-                <li><a href="#listas">Lista de guias</a></li>
+                <li><a href="#listas">Lista de guías</a></li>
                 <li><a href="#buscar">Buscar pedido</a></li>
                 <li><a href="#historial">Historial de pedidos</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section id="registro">
-            <h2>Registro de guías</h2>
-            <form>
-                <label>Numero de guía:<input type="text" name="numeroDeGuia" required></label>
-                <label>Origen:<input type="text" name="origen" required></label>
-                <label>Destino:<input type="text" name="destino" required></label>
-                <label>Destinatario:<input type="text" name="destinatario" required></label>
-                <label>Fecha de creación: <input type="date" name="fechaDeCreacion" required></label>
-                <label>Estado inicial:
-                    <select name="estado">
-                        <option value="pendiente">Pendiente</option>
-                        <option value="transito">En tránsito</option>
-                        <option value="entregado">Entregado</option>
-                    </select>
-                </label>
-                <button type="submit">Registrar guía</button>
+
+    <main id="inicio" tabindex="-1">
+        <section id="registro" aria-labelledby="titulo-registro">
+            <h2 id="titulo-registro">Registro de guías</h2>
+            <form aria-label="Formulario para registrar guías">
+                <label for="numeroDeGuia">Número de guía:</label>
+                <input type="text" id="numeroDeGuia" name="numeroDeGuia" required aria-required="true">
+
+                <label for="origen">Origen:</label>
+                <input type="text" id="origen" name="origen" required aria-required="true">
+
+                <label for="destino">Destino:</label>
+                <input type="text" id="destino" name="destino" required aria-required="true">
+
+                <label for="destinatario">Destinatario:</label>
+                <input type="text" id="destinatario" name="destinatario" required aria-required="true">
+
+                <label for="fechaDeCreacion">Fecha de creación:</label>
+                <input type="date" id="fechaDeCreacion" name="fechaDeCreacion" required aria-required="true">
+
+                <label for="estado">Estado inicial:</label>
+                <select id="estado" name="estado" aria-label="Selecciona el estado del envío">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="transito">En tránsito</option>
+                    <option value="entregado">Entregado</option>
+                </select>
+
+                <button type="submit" aria-label="Registrar guía de envío">Registrar guía</button>
             </form>
         </section>
-        <section id="estado">
-            <h2>Estado general</h2>
-            <p>Número total de guias activas: <span id="totalDeGuias">0</span></p>
-            <p>Guías en tránsito: <span id="guiasEnTransito">0</span></p>
-            <p>Guías entregadas: <span id="guiasEntregadas">0</span></p>
+
+        <section id="estado" aria-labelledby="titulo-estado">
+            <h2 id="titulo-estado">Estado general</h2>
+            <p>Número total de guías activas: <span id="totalDeGuias" aria-live="polite">0</span></p>
+            <p>Guías en tránsito: <span id="guiasEnTransito" aria-live="polite">0</span></p>
+            <p>Guías entregadas: <span id="guiasEntregadas" aria-live="polite">0</span></p>
         </section>
-        <section id="listas">
-            <h2>Lista de guias</h2>
-            <table>
+
+        <section id="listas" aria-labelledby="titulo-lista">
+            <h2 id="titulo-lista">Lista de guías</h2>
+            <table aria-label="Tabla con la lista de guías registradas">
                 <thead>
                     <tr>
-                        <th>Número de guía</th>
-                        <th>Estado</th>
-                        <th>Origen</th>
-                        <th>Destino</th>
-                        <th>Ultima actualización</th>
-                        <th>Acciones</th>
+                        <th scope="col">Número de guía</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Origen</th>
+                        <th scope="col">Destino</th>
+                        <th scope="col">Última actualización</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <!-- Aquí se llenará dinámicamente la lista -->
+                </tbody>
             </table>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2025 Gestión de Guías. Todos los derechos reservados.</p>
         <p>Contacto: <a href="mailto:info@gestionguias.com">info@gestionguias.com</a></p>
-        <p><a href="#">Política de privacidad</a> | <a href="#">Términos y condiciones</a></p>
+        <p>
+            <a href="#" aria-label="Política de privacidad">Política de privacidad</a> |
+            <a href="#" aria-label="Términos y condiciones">Términos y condiciones</a>
+        </p>
     </footer>
 </body>
 </html>
